@@ -49,12 +49,12 @@ start_frida_server() {
     case "$FRIDA_PORT" in
       '' | *[!0-9]*) echo "[-] Ignoring invalid port: $FRIDA_PORT" ;;
       *) [ "$FRIDA_PORT" -ge 1 ] && [ "$FRIDA_PORT" -le 65535 ] \
-           && FRIDA_ARGS="-l 127.0.0.1:$FRIDA_PORT" \
+           && FRIDA_LISTEN="127.0.0.1:$FRIDA_PORT" \
            || echo "[-] Ignoring out-of-range port: $FRIDA_PORT" ;;
     esac
   fi
 
-  "$FRIDA_BIN" $FRIDA_ARGS -D
+  "$FRIDA_BIN" ${FRIDA_LISTEN:+-l "$FRIDA_LISTEN"} -D
 }
 
 wait_for_boot() {
