@@ -1,7 +1,7 @@
 #!/bin/sh
 MODPATH=${0%/*}
 FRIDA_BIN="$MODPATH/bin/frida-server"
-FRIDA_PORT_FILE="/data/adb/magisk-frida.port"
+FRIDA_PORT_FILE="$MODPATH/port"
 PATH="$MODPATH/bin:$PATH:/data/adb/ap/bin:/data/adb/magisk:/data/adb/ksu/bin"
 
 # log

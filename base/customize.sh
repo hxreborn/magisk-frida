@@ -186,6 +186,12 @@ on_install() {
     || abort "! Failed to extract Frida binary"
   mv -f "$F_BINDIR/frida-server-$F_ARCH" "$F_BINDIR/frida-server" \
     || abort "! Failed to install Frida binary"
+
+  F_OLD_PORT="/data/adb/modules/${MODPATH##*/}/port"
+  if [ -f "$F_OLD_PORT" ] && [ "$F_OLD_PORT" != "$MODPATH/port" ]; then
+    ui_print "- Keeping custom port: $(cat "$F_OLD_PORT")"
+    cp -f "$F_OLD_PORT" "$MODPATH/port" || abort "! Failed to keep custom port"
+  fi
 }
 
 # Only some special files require specific permissions
