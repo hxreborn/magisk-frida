@@ -24,18 +24,15 @@ Install `MagiskFrida.zip` from [the releases](https://github.com/ViRb3/magisk-fr
 
 ## Custom port
 
-frida-server listens on `127.0.0.1:27042` by default. To use a different port, write it to
-`/data/adb/modules/magisk-frida/port` and reboot:
+frida-server listens on `127.0.0.1:27042` by default. To change it, write the port to `/data/adb/modules/magisk-frida/port` and reboot
 
 ```bash
 echo 41337 > /data/adb/modules/magisk-frida/port
 ```
 
-Connect with `frida-ps -H 127.0.0.1:41337`, or keep `-U` working by forwarding on the host with
-`adb forward tcp:27042 tcp:41337`.
+Connect with `frida-ps -H 127.0.0.1:41337`, or keep `-U` working with `adb forward tcp:27042 tcp:41337`
 
-Delete the file to return to the default. The module carries the file over when it is
-updated. An invalid or out-of-range value is ignored and the default is used.
+> :information_source: The port file is kept across module updates. Delete it to go back to the default, invalid values are ignored
 
 ## How fast are frida-server updates?
 
