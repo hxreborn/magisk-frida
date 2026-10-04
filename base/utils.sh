@@ -44,6 +44,7 @@ start_frida_server() {
     return 1
   fi
 
+  FRIDA_LISTEN=""
   if [ -f "$FRIDA_PORT_FILE" ]; then
     FRIDA_PORT="$(cat "$FRIDA_PORT_FILE")"
     case "$FRIDA_PORT" in
