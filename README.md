@@ -30,10 +30,6 @@ frida-server listens on `127.0.0.1:27042` by default. To change it, write the po
 echo 41337 > /data/adb/modules/magisk-frida/port
 ```
 
-Connect with `frida-ps -H 127.0.0.1:41337`, or keep `-U` working with `adb forward tcp:27042 tcp:41337`
-
-> :information_source: The port file is kept across module updates. Delete it to go back to the default, invalid values are ignored
-
 ## How fast are frida-server updates?
 
 Instant! This module is hooked up to the official Frida build process
