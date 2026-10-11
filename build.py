@@ -63,7 +63,7 @@ def generate_version_code(project_tag: str) -> int:
 
 def create_module_prop(path: Path, project_tag: str):
     module_prop = f"""id=magisk-frida
-name=MagiskFrida
+name=MagiskFrida (custom port)
 version={project_tag}
 versionCode={generate_version_code(project_tag)}
 author=ViRb3 & enovella
